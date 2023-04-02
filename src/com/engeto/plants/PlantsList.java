@@ -49,22 +49,6 @@ public class PlantsList {
         }
     }
 
-    public void saveToFile(String filename, String tabulator) throws PlantException {
-        try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(filename)))) {
-            for (Plant plant : dataList) {
-                String record =
-                        plant.getName()+tabulator
-                                +plant.getNotes()+tabulator
-                                +plant.getFreqOfWatering()+tabulator
-                                +plant.getWatering()+tabulator
-                                +plant.getPlanted();
-                writer.println(record);
-            }
-        } catch (IOException e) {
-            throw new PlantException("Došlo k chybě při zápisu do souboru "+filename+ ": " + e.getLocalizedMessage() );
-        }
-    }
-
     public static String getDescriptionOfAllPlants() {
         String allPlants = "";
         for (Plant plant : dataList) {

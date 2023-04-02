@@ -67,12 +67,6 @@ public class Main {
                         + ex.getLocalizedMessage());
             }
 
-        try {
-            dataList.saveToFile(Settings.getFilename(), Settings.getTabulator());
-        } catch (PlantException e) {
-            System.err.println(e.getLocalizedMessage());
-        }
-
         }
   }
 

@@ -11,7 +11,7 @@ public class PlantsList {
 
     public static List<Plant> dataList = new ArrayList<>();
 
-    public void addAllFromFile(String filename, String tabulator) throws PlantException {
+    public void addAllFromFile(String filename, String delimeter) throws PlantException {
         long lineNumber = 0;
         String[] items = new String[0];
         String line = "";
@@ -19,7 +19,7 @@ public class PlantsList {
             while (scanner.hasNextLine()) {
                 lineNumber++;
                 line = scanner.nextLine();
-                items = line.split(tabulator);
+                items = line.split(delimeter);
          //     items = line.split("\t");
                if (items.length != 5) throw new PlantException("Špatný počet položek na řádku číslo " + lineNumber);
                 Plant plant = new Plant(

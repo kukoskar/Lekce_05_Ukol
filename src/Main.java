@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) throws PlantException {
         PlantsList dataList = new PlantsList();
         try {
-            dataList.addAllFromFile(Settings.getFilename(), Settings.getTabulator());
+            dataList.addAllFromFile(Settings.getFilename(), Settings.getDelimeter());
         } catch (PlantException e) {
             System.err.println(e.getLocalizedMessage());
         }

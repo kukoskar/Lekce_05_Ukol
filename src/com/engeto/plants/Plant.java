@@ -87,9 +87,12 @@ public class Plant {
       return watering;
     }
 
+
     public void setWatering(LocalDate watering) throws PlantException{
-        checkWatering(watering);
-        this.watering = watering;
+        if (watering.isBefore(planted)) {
+            throw new PlantException("Datum nesmí být menší než den posledního zalití " +
+                    " (zadal jsi zasazení: " + planted + " a poslední zalití " + watering + " )");
+        }
     }
 
     public int getFreqOfWatering()
